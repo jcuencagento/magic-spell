@@ -29,7 +29,7 @@ export default function Home() {
 
 	return (
 		<form
-			className="flex flex-col items-center md:justify-center min-w-full py-10 grow"
+			className="flex flex-col items-center md:justify-center text-base lg:text-lg w-full lg:w-1/2 py-10 grow"
 			onSubmit={(e) => {
 				handleSubmit(e);
 				setInput("");
@@ -44,26 +44,25 @@ export default function Home() {
 				onChange={(e) => {
 					if (!isLoading) setText(e.target.value);
 				}}
-				className="rounded-lg drop-shadow-sm bg-gray-100 border border-gray-200 px-2 pt-2 pb-6 md:resize dark:bg-gray-900 dark:border-gray-800 min-w-full max-w-7xl min-h-32 md:min-w-96 focus:outline-none focus:border-blue-300 dark:focus:border-blue-700 transition-colors max-h-[52rem]"
-				placeholder="It was a dark and stormy night..."
+				className="rounded-lg drop-shadow-sm bg-gray-100 border border-gray-200 px-2 pt-2 pb-6 md:resize dark:bg-gray-900 dark:border-gray-800 min-w-full max-w-7xl min-h-32 max-h-screen focus:outline-none focus:border-orange-600 dark:focus:border-yellow-200 transition-colors"
+				placeholder="¿Cómo te encuentras hoy?"
 				aria-label="Text"
 				cacheMeasurements
 			/>
 
-			<div className="rounded-full drop-shadow-sm bg-gray-100 border border-gray-200 -mt-5 dark:bg-gray-900 dark:border-gray-800 flex focus-within:border-blue-300 dark:focus-within:border-blue-700 transition-colors">
+			<div className="rounded-full drop-shadow-sm bg-gray-100 border border-gray-200 -mt-4 dark:bg-gray-900 dark:border-gray-800 flex lg:justify-between lg:w-2/3 focus-within:border-orange-600 dark:focus-within:border-yellow-200 transition-colors">
 				<input
-					className="bg-transparent rounded-full py-1 px-4 focus:outline-none"
-					placeholder="Make the text more unique..."
+					className="bg-transparent rounded-full py-1 px-2 w-full lg:px-8 focus:outline-none"
+					placeholder="Cuéntame más..."
 					onChange={handleInputChange}
 					value={input}
 					aria-label="Prompt"
 					required
 				/>
-
 				<button
 					aria-label="Submit"
 					type="submit"
-					className="rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 transition-colors text-white size-8 md:size-10 flex items-center justify-center"
+					className="rounded-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 transition-colors text-white size-8 md:size-12 flex items-center justify-center"
 				>
 					{isLoading ? <LoaderIcon /> : <SparklesIcon />}
 				</button>
