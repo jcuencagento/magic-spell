@@ -28,45 +28,36 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${GeistSans.variable} ${GeistMono.variable} font-sans bg-gray-50 dark:bg-gray-950 text-black dark:text-white flex flex-col items-center px-3 py-10 min-h-dvh`}
+				className={`${GeistSans.variable} ${GeistMono.variable} font-sans bg-gray-100 dark:bg-gray-800 text-black dark:text-white flex flex-col items-center px-3 py-10 min-h-dvh`}
 			>
-				<Toaster richColors theme="system" />
+				<Toaster richColors theme="light" />
 
 				<h1 className="font-semibold text-xl flex items-center justify-center">
 					<WandIcon />
 
-					<span className="bg-gradient-to-b dark:from-gray-50 dark:to-gray-200 from-gray-950 to-gray-800 bg-clip-text text-transparent ml-3">
-						Magic Spell
+					<span className="bg-gradient-to-b text-2xl xl:text-4xl dark:from-gray-50 dark:to-gray-200 from-gray-950 to-gray-800 bg-clip-text text-transparent ml-3">
+						Medical Chat
 					</span>
 				</h1>
 
-				<p className="mt-3 text-center font-mono">
-					AI prompting built into your{" "}
-					<strong className="bg-yellow-200 text-black dark:bg-yellow-300 rounded">
-						&lt;textarea&gt;
+				<p className="mt-4 lg:mt-8 text-center text-base lg:text-xl font-mono">
+					Chat de {" "}
+					<strong className="bg-orange-600 text-black dark:bg-yellow-200 rounded p-1">
+						&lt;Inteligencia Artificial&gt;
 					</strong>
+					{" "} para asistirte!
 				</p>
 
 				{children}
 
-				<footer className="text-center text-sm dark:text-gray-400 text-gray-600 font-mono">
+				<footer className="text-center text-sm dark:text-gray-600 text-gray-600 font-mono">
 					<p>
-						<A href="https://github.com/ai-ng">ai-ng</A> /{" "}
-						<A href="https://nickoates.com">nick oates</A>
+						<A href="https://github.com/jcuencagento"> jcuencagento </A> /{" "}
+						<A href="https://github.com/jcuencagento/magic-spell"> {"< code />"} </A>
 					</p>
 					<p>
-						Built with{" "}
-						<A href="https://sdk.vercel.ai">Vercel AI SDK</A> &{" "}
-						<A href="https://groq.com">Groq</A>
-					</p>
-					<p>
-						<A href="https://github.com/ai-ng/magic-spell">
-							source
-						</A>{" "}
-						/{" "}
-						<A href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fai-ng%2Fmagic-spell&env=GROQ_API_KEY&envDescription=Groq%20API%20key%20from%20https%3A%2F%2Fconsole.groq.com%2Fkeys&project-name=magic-spell&repository-name=magic-spell&demo-title=Magic%20Spell&demo-description=AI%20prompting%20built%20into%20your%20%3Ctextarea%3E&demo-url=https%3A%2F%2Fmagic-spell.vercel.app&demo-image=https%3A%2F%2Fmagic-spell.vercel.app%2Fopengraph-image.png">
-							deploy
-						</A>
+						<A href="https://github.com/ai-ng/magic-spell"> original here </A>/{" "}
+						<A href="https://nickoates.com">from him</A>
 					</p>
 				</footer>
 
@@ -79,6 +70,6 @@ export default function RootLayout({
 
 function A(props: any) {
 	return (
-		<a {...props} className="text-black dark:text-white hover:underline" />
+		<a {...props} className="text-black dark:text-white hover:text-yellow-200" />
 	);
 }
