@@ -1,6 +1,6 @@
 "use client";
 
-import { LoaderIcon, SparklesIcon } from "@/app/icons";
+import { LoaderIcon, SparklesIcon, CleanTextFieldIcon } from "@/app/icons";
 import { useCompletion } from "ai/react";
 import { useEffect, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
@@ -22,6 +22,10 @@ export default function Home() {
 		onError: (error) => toast.error(error.message),
 	});
 
+	function clearText() {
+		setText("");
+	}
+
 	// warm up the completion endpoint
 	useEffect(() => {
 		fetch("/api/completion").catch(() => {});
@@ -35,6 +39,19 @@ export default function Home() {
 				setInput("");
 			}}
 		>
+			<div className="flex w-full mb-1 lg:-mb-2 justify-center">
+				<button
+					aria-label="clear"
+					onClick={(e) => {
+						e.preventDefault();
+						clearText();
+					}}
+					className="rounded-full m-0 p-2 z-10 bg-red-600 hover:bg-red-800 active:bg-red-700 transition-colors text-white size-8 md:size-10 flex items-center justify-center"
+				>
+					{isLoading ? <LoaderIcon /> : <CleanTextFieldIcon />}
+				</button>
+			</div>
+
 			<TextareaAutosize
 				value={
 					isLoading && completion.length > 0
@@ -49,6 +66,7 @@ export default function Home() {
 				aria-label="Text"
 				cacheMeasurements
 			/>
+
 
 			<div className="rounded-full drop-shadow-sm bg-gray-100 border border-gray-200 -mt-4 dark:bg-gray-900 dark:border-gray-800 flex lg:justify-between lg:w-2/3 focus-within:border-orange-600 dark:focus-within:border-yellow-200 transition-colors">
 				<input
